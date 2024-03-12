@@ -6,14 +6,15 @@ import { ContainerMain } from './styles'
 import * as enums from '../../utils/enums/Tarefa.enum'
 
 const ToDoList = () => {
-  const { tarefas } = useSelector((state: RootReducer) => state)
+  const { itens } = useSelector((state: RootReducer) => state.tarefas)
 
   return (
     <ContainerMain>
       <ul>
-        {tarefas.map((t) => (
+        {itens.map((t) => (
           <li key={t.id}>
             <Todo
+              id={t.id}
               description={t.description}
               title={t.title}
               priority={t.priority}
