@@ -7,11 +7,21 @@ import * as enums from '../../utils/enums/Tarefa.enum'
 
 const ToDoList = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
+  const { termo } = useSelector((state: RootReducer) => state.filtro)
+
+  const filtraTarefas = () => {
+    return itens.filter(
+      (item) => item.title.toLowerCase().search(termo.toLowerCase()) >= 0
+    )
+  }
 
   return (
     <ContainerMain>
+      <p>
+        2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;{termo}&ldquo;
+      </p>
       <ul>
-        {itens.map((t) => (
+        {filtraTarefas().map((t) => (
           <li key={t.id}>
             <Todo
               id={t.id}
