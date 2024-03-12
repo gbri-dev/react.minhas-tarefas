@@ -1,6 +1,22 @@
+import Todo from '../../components/Todo'
+import { ContainerMain } from './styles'
+
 const ToDoList = () => (
-  <main>
-    <p>2 tarefas marcadas como: &quot;categoria&quot; e &quot;tempo&quot;</p>
-  </main>
+  <ContainerMain>
+    <ul>
+      <li>
+        <Todo />
+      </li>
+      <li>
+        <Todo />
+      </li>
+      <li>
+        <Todo />
+      </li>
+      <li>
+        <Todo />
+      </li>
+    </ul>
+  </ContainerMain>
 )
 export default ToDoList
