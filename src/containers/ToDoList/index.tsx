@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
 import Todo from '../../components/Todo'
-import { ContainerMain, Resultado } from './styles'
+import { ContainerMain, TitleResult } from '../../styles'
 
 const ToDoList = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
@@ -52,7 +52,7 @@ const ToDoList = () => {
   const detalhes = detalhesFiltro(tarefas.length)
   return (
     <ContainerMain>
-      <Resultado>{detalhes}</Resultado>
+      <TitleResult as="p">{detalhes}</TitleResult>
       <ul>
         {tarefas.map((t) => (
           <li key={t.id}>

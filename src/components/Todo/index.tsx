@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
-import * as enums from '../../utils/enums/Tarefa.enum'
+import { ButtonSaved } from '../../styles'
 
 import { remover, editar } from '../../store/reducers/tarefas.reduce'
 import TarefaClass from '../../models/Tarefa.class'
@@ -48,7 +48,7 @@ const Todo = ({
       <S.ActionBar>
         {editando ? (
           <>
-            <S.ButtonSaved
+            <ButtonSaved
               onClick={() => {
                 dispatch(
                   editar({
@@ -63,7 +63,7 @@ const Todo = ({
               }}
             >
               Salvar
-            </S.ButtonSaved>
+            </ButtonSaved>
             <S.ButtonRemoveCancel onClick={cancelEdit}>
               Cancelar
             </S.ButtonRemoveCancel>

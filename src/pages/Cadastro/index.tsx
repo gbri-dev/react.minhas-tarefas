@@ -1,7 +1,11 @@
+import FormCad from '../../containers/Form'
+import SideBar from '../../containers/SideBar'
+
 const Cadastro = () => (
-  <div>
-    <h1>Nova tarefa</h1>
-  </div>
+  <>
+    <SideBar />
+    <FormCad />
+  </>
 )
 
 export default Cadastro
