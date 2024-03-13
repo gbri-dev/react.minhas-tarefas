@@ -10,29 +10,27 @@ import {
   ButtonSaved
 } from '../../styles'
 import * as enums from '../../utils/enums/Tarefa.enum'
-import Tarefa from '../../models/Tarefa.class'
 import { cadastrar } from '../../store/reducers/tarefas.reduce'
 
 const FormCad = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [titulo, setTitulo] = useState('')
-  const [descricao, setDescricao] = useState('')
-  const [prioridade, setPrioridade] = useState(enums.Priority.NORMAL)
+  const [title, setTitulo] = useState('')
+  const [description, setDescricao] = useState('')
+  const [priority, setPrioridade] = useState(enums.Priority.NORMAL)
 
   const cadastrarTarefa = (evento: FormEvent) => {
     evento.preventDefault()
 
-    const taskToAdd = new Tarefa(
-      9,
-      titulo,
-      prioridade,
-      enums.Status.PENDENTE,
-      descricao
+    dispatch(
+      cadastrar({
+        title,
+        priority,
+        description,
+        status: enums.Status.PENDENTE
+      })
     )
-
-    dispatch(cadastrar(taskToAdd))
     navigate('/')
   }
 
@@ -41,13 +39,13 @@ const FormCad = () => {
       <TitleResult>Nova Tarefa</TitleResult>
       <Form onSubmit={cadastrarTarefa}>
         <InputSearch
-          value={titulo}
+          value={title}
           onChange={(e) => setTitulo(e.target.value)}
           type="text"
           placeholder="Título"
         />
         <InputSearch
-          value={descricao}
+          value={description}
           onChange={({ target }) => setDescricao(target.value)}
           as="textarea"
           placeholder="Descrição da tarefa"
