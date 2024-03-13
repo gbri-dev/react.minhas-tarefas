@@ -23,3 +23,7 @@ export const Options = styled.div`
     margin-right: 6px;
   }
 `
+export const Option = styled.div`
+  display: inline;
+  text-transform: capitalize;
+`
