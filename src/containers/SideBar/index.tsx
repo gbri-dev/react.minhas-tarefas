@@ -3,6 +3,7 @@ import FilterCard from '../../components/FilterCard'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { alterarTermo } from '../../store/reducers/filter.reduce'
+import * as enums from '../../utils/enums/Tarefa.enum'
 
 const SideBar = () => {
   const dispatch = useDispatch()
@@ -18,12 +19,32 @@ const SideBar = () => {
           onChange={(e) => dispatch(alterarTermo(e.target.value))}
         />
         <S.Filters>
-          <FilterCard legend="pendentes" count={4} />
-          <FilterCard legend="concluídas" count={5} />
-          <FilterCard legend="urgentes" count={2} />
-          <FilterCard legend="importantes" count={3} />
-          <FilterCard legend="normal" count={1} />
-          <FilterCard legend="todas" count={0} ativo />
+          <FilterCard
+            valor={enums.Status.PENDENTE}
+            criterio="status"
+            legend="pendentes"
+          />
+          <FilterCard
+            valor={enums.Status.CONCLUIDA}
+            criterio="status"
+            legend="concluídas"
+          />
+          <FilterCard
+            valor={enums.Priority.URGENTE}
+            criterio="priority"
+            legend="urgentes"
+          />
+          <FilterCard
+            valor={enums.Priority.IMPORTANTE}
+            criterio="priority"
+            legend="importantes"
+          />
+          <FilterCard
+            valor={enums.Priority.NORMAL}
+            criterio="priority"
+            legend="normal"
+          />
+          <FilterCard criterio="todas" legend="todas" />
         </S.Filters>
       </div>
     </S.Aside>
