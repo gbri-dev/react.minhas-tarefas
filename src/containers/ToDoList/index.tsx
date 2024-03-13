@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
 import Todo from '../../components/Todo'
-import { ContainerMain } from './styles'
+import { ContainerMain, Resultado } from './styles'
 
 const ToDoList = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
@@ -33,18 +33,28 @@ const ToDoList = () => {
     }
   }
 
+  const tarefas = filtraTarefas()
+
+  const detalhesFiltro = (quantidade: number) => {
+    let message = ''
+    const complement =
+      termo !== undefined && termo.length > 0 ? ` e "${termo}"` : ''
+
+    if (criterio === 'todas') {
+      message = `${quantidade} tarefa(s) encontrada(s) como: todas ${complement}`
+    } else {
+      message = `${quantidade} tarefa(s) encontrada(s) como: "${criterio} = ${valor}" ${complement}`
+    }
+
+    return message
+  }
+
+  const detalhes = detalhesFiltro(tarefas.length)
   return (
     <ContainerMain>
-      <p>
-        2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;{termo}&ldquo;
-      </p>
+      <Resultado>{detalhes}</Resultado>
       <ul>
-        <li>{termo}</li>
-        <li>{criterio}</li>
-        <li>{valor}</li>
-      </ul>
-      <ul>
-        {filtraTarefas().map((t) => (
+        {tarefas.map((t) => (
           <li key={t.id}>
             <Todo
               id={t.id}
