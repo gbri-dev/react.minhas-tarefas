@@ -4,7 +4,7 @@ import ToDoList from '../../containers/ToDoList'
 
 const Home = () => (
   <>
-    <SideBar />
+    <SideBar mostrarFiltros />
     <ToDoList />
     <ButtonAdd />
   </>

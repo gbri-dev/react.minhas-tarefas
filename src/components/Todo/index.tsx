@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
-import { ButtonSaved } from '../../styles'
+import { Buttons, ButtonSaved } from '../../styles'
 
 import * as enums from '../../utils/enums/Tarefa.enum'
 
@@ -91,7 +91,7 @@ const Todo = ({
           </>
         ) : (
           <>
-            <S.Buttons onClick={() => setEditando(true)}>Editar</S.Buttons>
+            <Buttons onClick={() => setEditando(true)}>Editar</Buttons>
             <S.ButtonRemoveCancel onClick={() => dispatch(remover(id))}>
               Remover
             </S.ButtonRemoveCancel>
