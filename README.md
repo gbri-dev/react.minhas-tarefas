@@ -51,3 +51,5 @@ npm install --save styled-components
 npm install --save-dev @types/styled-components
 
 npm install --save react-redux @reduxjs/toolkit
+
+npm install --save react-router-dom
