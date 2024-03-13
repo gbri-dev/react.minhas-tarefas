@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Lobster Two
+- Font Author: Copyright (c) 2011 by Pablo Impallari (www.impallari.com impallari@gmail.com). All rights reserved.
+- Font Source: https://fonts.gstatic.com/s/lobstertwo/v20/BngRUXZGTXPUvIoyV6yN5-92w4CByxyKeuDp.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
